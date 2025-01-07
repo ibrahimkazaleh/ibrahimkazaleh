@@ -368,15 +368,81 @@ plt.figure(figsize=(10,10)
 
 
 
+# ------------------------
+from sklearn.neural_network import MLPClassifier
+
+nn = MLPClassifier(
+        hidden_layer_sizes=(100,),
+        max_iter=2000,
+        activation="logistic",
+        alpha=0.0001,
+        learning_rate="adaptive",
+        # gridsearch=False,
+            )
+nn.fit(X_train[feature_set_4], y_train)
+
+pred_prob_training_y = nn.predict_proba(X_train[feature_set_4])
+pred_prob_test_y = nn.predict_proba(X_test[feature_set_4])
+
+pred_test_y = nn.predict(X_test[feature_set_4])
+accuracy_1=accuracy_score( pred_test_y,y_test)
+len(feature_set_3)
+
+# ---------------------------------------------------------------------
+# ----- CM for the MLPClassifier to create predict model  -------------
+# ---------------------------------------------------------------------
+pred_prob_training_y = nn.predict_proba(X_train[feature_set_4])
+pred_prob_test_y = nn.predict_proba(X_test[feature_set_4])
+
+frame_prob_training_y = pd.DataFrame(pred_prob_training_y, columns=nn.classes_)
+frame_prob_test_y = pd.DataFrame(pred_prob_test_y, columns=nn.classes_)
+
+
+classes = frame_prob_test_y.columns
+cm = confusion_matrix(y_test, class_test_y, labels=classes)
+
+# create confusion matrix for cm
+plt.figure(figsize=(10, 10))
+plt.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues)
+# plt.title(f"CM {feature_set_4}")
+plt.title(f"Confusion matrix (NN) feature_set_3")
+plt.colorbar()
+tick_marks = np.arange(len(classes))
+plt.xticks(tick_marks, classes, rotation=45)
+plt.yticks(tick_marks, classes)
+
+thresh = cm.max() / 2.0
+for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+    plt.text(j, i,
+             format(cm[i, j], 'd'),
+             horizontalalignment="center",
+             color="white" if cm[i, j] > thresh else "black")
+
+plt.ylabel("True label")
+plt.xlabel("Predicted label")
+plt.grid(False)
+plt.show()
+
+plt.figure(figsize=(10,10)
+           )
+
+
+
+
+
 # -------------------------------
 # --------- save the model ------
 # -------------------------------
 
+joblib.dump(nn, "../../models/NN_workout_prediction_model(1).pkl")
 
+# model = joblib.load("../../models/NN_workout_prediction_model.pkl")
 
-joblib.dump(learner, "../../models/NN_workout_prediction_model.pkl")
+# item =np.array(X_test[feature_set_4].iloc[1]).reshape(1, -1)
+# model.predict(item)
 
-model = joblib.load("../../models/NN_workout_prediction_model.pkl")
+# probabilities = model.predict_proba(item)
 
-
-model.predict(X_train[feature_set_3])
+# max(probabilities[0])
+# y_test[1]
+# X_test.iloc[1]

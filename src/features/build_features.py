@@ -17,7 +17,7 @@ predictor_coloumns=list(df.columns[:6])
 
 # plote setting 
 plt.style.use('fivethirtyeight')
-plt.rcParams['figure.figsize']=(20,5)
+plt.rcParams['figure.figsize']=(20,20)
 plt.rcParams['figure.dpi']=100 
 plt.rcParams['lines.linewidth']=2
 # plt.style.available
@@ -111,6 +111,7 @@ df_pca=PCA.apply_pca(df_pca,predictor_coloumns,3)
 
 subset=df_pca[df_pca['set']==35]
 subset[['pca_1','pca_2','pca_3']].plot(subplots=True)
+subset[['acc_x', 'acc_y', 'acc_z', 'gyr_x', 'gyr_y', 'gyr_z']].plot(subplots=True)
 # --------------------------------------------------------------
 # Sum of squares attributes
 # --------------------------------------------------------------
