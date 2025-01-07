@@ -45,7 +45,8 @@ gyr_df=pd.DataFrame()
 
 acc_set=1
 gyr_set=1
-
+acc_num=0
+gyr_num=0
 
 for f in files:
     participant=f.replace(bath_file,"").split('-')[0]# A
