@@ -130,10 +130,11 @@ for col in outlier_columns:
 
 # Check for normal distribution
 
+
+
+
 df[outlier_columns[:3] + ['label']].plot.hist(by='label',figsize=(20,20),layout=(3,3))
 df[outlier_columns[3:] + ['label']].plot.hist(by='label',figsize=(20,20),layout=(3,3))
-
-
 
 # Insert Chauvenet's function
 def mark_outliers_chauvenet(dataset, col, C=2):
