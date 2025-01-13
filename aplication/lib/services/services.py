@@ -51,7 +51,7 @@ class SensorData(BaseModel):
     time: str
 
 # تحميل النموذج عند بدء تشغيل التطبيق
-model_path = "../../../models/NN_workout_prediction_model(1).pkl"
+model_path = "../../../models/NN_workout_prediction_model(0).pkl"
 try:
     model = joblib.load(model_path)
     print("Model loaded successfully!")

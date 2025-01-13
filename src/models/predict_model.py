@@ -330,7 +330,7 @@ plt.show()
 # --------------------------------------------------------------
 
 class_train_y, class_test_y, class_train_prob_y, class_test_prob_y = learner.feedforward_neural_network(
-    X_train[feature_set_4], y_train, X_test[feature_set_4], gridsearch=False
+    X_train[feature_set_1], y_train, X_test[feature_set_1], gridsearch=False
 )
 
 accuracy = accuracy_score(y_test, class_test_y)
@@ -374,9 +374,4 @@ plt.figure(figsize=(10,10)
 
 
 
-joblib.dump(learner, "../../models/NN_workout_prediction_model.pkl")
-
-model = joblib.load("../../models/NN_workout_prediction_model.pkl")
-
-
-model.predict(X_train[feature_set_3])
+joblib.dump(learner, "../../models/NN_workout_prediction_model(0).pkl")
