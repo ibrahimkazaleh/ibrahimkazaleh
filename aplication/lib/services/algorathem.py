@@ -97,25 +97,27 @@ def build_features(input_df):
 
     return df
 
-import pandas as pd
-import numpy as np
 
-# إنشاء بيانات محاكاة للحساسات
-np.random.seed(42)  # لضمان ثبات النتائج
-rows = 500  # عدد الصفوف
 
-# إنشاء الأعمدة
-data = {
-    "epoch (ms)": pd.date_range(start="2024-01-01", periods=rows, freq="200ms"),
-    "acc_x": np.random.uniform(-10, 10, rows),
-    "acc_y": np.random.uniform(-10, 10, rows),
-    "acc_z": np.random.uniform(-10, 10, rows),
-    "gyr_x": np.random.uniform(-500, 500, rows),
-    "gyr_y": np.random.uniform(-500, 500, rows),
-    "gyr_z": np.random.uniform(-500, 500, rows),
-    "set": [1] * 250 + [2] * 250,  # مجموعة افتراضية للتمارين
-    "label": ["exercise1"] * 250 + ["exercise2"] * 250  # أسماء التمارين
-}
+# import pandas as pd
+# import numpy as np
+
+# # إنشاء بيانات محاكاة للحساسات
+# np.random.seed(42)  # لضمان ثبات النتائج
+# rows = 500  # عدد الصفوف
+
+# # إنشاء الأعمدة
+# data = {
+#     "epoch (ms)": pd.date_range(start="2024-01-01", periods=rows, freq="200ms"),
+#     "acc_x": np.random.uniform(-10, 10, rows),
+#     "acc_y": np.random.uniform(-10, 10, rows),
+#     "acc_z": np.random.uniform(-10, 10, rows),
+#     "gyr_x": np.random.uniform(-500, 500, rows),
+#     "gyr_y": np.random.uniform(-500, 500, rows),
+#     "gyr_z": np.random.uniform(-500, 500, rows),
+#     "set": [1] * 250 + [2] * 250,  # مجموعة افتراضية للتمارين
+#     "label": ["exercise1"] * 250 + ["exercise2"] * 250  # أسماء التمارين
+# }
 
 # إنشاء DataFrame
 # df_test = pd.DataFrame(data)

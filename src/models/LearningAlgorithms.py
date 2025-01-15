@@ -153,7 +153,7 @@ class ClassificationAlgorithms:
         frame_prob_test_y = pd.DataFrame(pred_prob_test_y, columns=nn.classes_)
         
         
-        return pred_training_y, pred_test_y, frame_prob_training_y, frame_prob_test_y
+        return pred_training_y, pred_test_y, frame_prob_training_y, frame_prob_test_y,nn
 
     # Apply a support vector machine for classification upon the training data (with the specified value for
     # C, epsilon and the kernel function), and use the created model to predict the outcome for both the
