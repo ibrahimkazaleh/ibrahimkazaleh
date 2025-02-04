@@ -329,7 +329,7 @@ plt.show()
 # Try a simpler model with the selected features
 # --------------------------------------------------------------
 
-class_train_y, class_test_y, class_train_prob_y, class_test_prob_y = learner.feedforward_neural_network(
+class_train_y, class_test_y, class_train_prob_y, class_test_prob_y,nn = learner.feedforward_neural_network(
     X_train[feature_set_1], y_train, X_test[feature_set_1], gridsearch=False
 )
 
@@ -374,4 +374,4 @@ plt.figure(figsize=(10,10)
 
 
 
-joblib.dump(learner, "../../models/NN_workout_prediction_model(0).pkl")
+joblib.dump(nn, "../../models/NN_workout_prediction_model(0).pkl")
